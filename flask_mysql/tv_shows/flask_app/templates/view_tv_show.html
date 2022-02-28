@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>TV Show</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card" style="border-radius: 15px">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h1>{{tv_show.title}}</h1>
+                    </div>
+                    <div class="card-body p-10">
+                        <h5 class="card-title">Network:</h5>
+                        <p class="card-text mb-3">{{tv_show.network}}</p>
+                        <h5 class="card-title">Release Date:</h5>
+                        <p class="card-text mb-3">{{tv_show.release_date}}</p>
+                        <h5 class="card-title">Description:</h5>
+                        <p class="card-text mb-3">{{tv_show.description}}</p>
+                        <h5 class="card-title">Posted By:</h5>
+                        <p class="card-text mb-3">{{poster.first_name}} {{poster.last_name}}</p>
+
+                        <a class="btn btn-primary mb-3" href="/dashboard">TV Shows</a>
+
+                        {% if tv_show.user_id == session.user_id %}
+                        <a class="btn btn-secondary mb-3" href="/edit/{{tv_show.id}}">Edit</a>
+
+                        <a class="btn btn-warning mb-3 text-white" href="/destroy/tv_show/{{tv_show.id}}">Delete</a>
+                        {% endif %}
+
+                        <a class="btn btn-danger mb-3" href="/logout">Log Out</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
